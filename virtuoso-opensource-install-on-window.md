@@ -22,7 +22,7 @@ C:\Program Files\virtuoso-opensource
 ;%VIRTUOSO_HOME%/bin;%VIRTUOSO_HOME%/lib                
 3)点击确认并退出               
 
-4. 创建运行实例             
+4  创建运行实例             
 1）以管理员的身份运行命令提示符cmd。（不以管理员身份运行，在创建实例的时候会报错：Unable to open the service control manager  > (5).）              
 2）验证virtuoso二进制，在cmd中运行命令：virtuoso-t -?               
 3）运行以下命令，进入C:\Program Files\virtuoso-opensource\database：                
@@ -34,7 +34,7 @@ virtuoso-t +service create +instance "New Instance Name" +configfile virtuoso.in
 virtuoso-t +service screate +instance "New Instance Name" +configfile virtuoso.ini               
 
 
-5. list/start/stop/delete命令               
+5  list/start/stop/delete命令               
 virtuoso-t +service list                  
 virtuoso-t +instance "Instance Name" +service start                
 virtuoso-t +instance "Instance Name" +service stop                
