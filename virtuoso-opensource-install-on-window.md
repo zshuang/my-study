@@ -41,6 +41,8 @@ virtuoso-t +instance "Instance Name" +service stop
 virtuoso-t +instance "Instance Name" +service delete             
 
 (启动实例之后，在网页上面输入：http://localhost:8890/conductor/  进入管理页面)                
+![virtuoso admin page img](virtuoso-main.jpg)    
+
 
 说明：             
 默认管理员账户密码为：dba/dba                 
