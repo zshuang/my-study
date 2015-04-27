@@ -17,10 +17,10 @@ http://sourceforge.net/projects/virtuoso/files/
 本人的地址为：             
 C:\Program Files\virtuoso-opensource             
 
-1)右键电脑——》属性——》高级系统设置——》环境变量——》新建，新建变量，名为：VIRTUOSO_HOME，值为：C:/Program                Files/virtuoso-opensource
-2)编辑PATH变量，添加          
+1)右键电脑——》属性——》高级系统设置——》环境变量——》新建，新建变量，名为：VIRTUOSO_HOME，值为：C:/Program Files/virtuoso-opensource           
+2)编辑PATH变量，添加           
 ;%VIRTUOSO_HOME%/bin;%VIRTUOSO_HOME%/lib                
-3)点击确认并退出           
+3)点击确认并退出               
 
 4. 创建运行实例             
 1）以管理员的身份运行命令提示符cmd。（不以管理员身份运行，在创建实例的时候会报错：Unable to open the service control manager  > (5).）              
