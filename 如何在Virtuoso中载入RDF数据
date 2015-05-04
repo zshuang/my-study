@@ -1,0 +1,38 @@
+##如何在Virtuoso载入RDF数据
+
+http://localhost:8890/conductor/  进入管理页面
+选择Linked Data， 然后再选择Quad Store Upload
+选择要载入的RDF文件名，如scent-ontology20140601.nt，再键入该数据的Named Graph IRI， 如http://localhost:8890/Scent
+点击载入（Upload）。
+注意：如果数据文件包含不正确的符号或格式， 系统将出现下列警告：
+
+Invalid data entered
+
+You have attempted to upload invalid data. You can only upload RDF, Turtle, N3 serializations of RDF Data to the RDF Data Store.
+
+这时候需要删除数据文件中所包含的错误。 Virtuoso对文件的格式要求很高。许多在LarKC中可以载入的Ntriple数据，在Virtuoso中就会发现错误而不能被载入。
+
+如果数据文件载入正确的话，就可以在Sparql界面测试载入结果。
+如Graph IRI选择：http://localhost:8890/Scent
+
+使用下列Sparql Query：
+select ?s ?p ?o
+where
+{
+?s ?p ?o.
+}
+点击“execute”执行， 即可以看到结果，如：
+
+s 	p 	o
+http://wasp.cs.vu.nl/chem/id#R2008081680000003 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type 	http://wasp.cs.vu.nl/chem/id#R2008081680000002
+http://wasp.cs.vu.nl/chem/id#R2008081680000004 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type 	http://wasp.cs.vu.nl/chem/id#R2008081680000002
+http://wasp.cs.vu.nl/chem/id#R2008081680000005 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type 	http://wasp.cs.vu.nl/chem/id#R2008081680000002
+http://wasp.cs.vu.nl/chem/id#R2008081680000007 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type 	http://wasp.cs.vu.nl/chem/id#R2008081680000006
+http://wasp.cs.vu.nl/chem/id#R2008081680000008 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type 	http://wasp.cs.vu.nl/chem/id#R2008081680000006
+http://wasp.cs.vu.nl/chem/id#R2008081680000009 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type 	http://wasp.cs.vu.nl/chem/id#R2008081680000006
+http://wasp.cs.vu.nl/chem/id#R2008081680000010 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type 	http://wasp.cs.vu.nl/chem/id#R2008081680000006
+http://wasp.cs.vu.nl/chem/id#R2008081680000011 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type 	http://wasp.cs.vu.nl/chem/id#R2008081680000006
+http://wasp.cs.vu.nl/chem/id#R2008081680000012 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type 	http://wasp.cs.vu.nl/chem/id#R2008081680000006
+http://wasp.cs.vu.nl/chem/id#R2008081680000013 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type 	http://wasp.cs.vu.nl/chem/id#R2008081680000006
+http://wasp.cs.vu.nl/chem/id#R2008081680000014 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type 	http://wasp.cs.vu.nl/chem/id#R2008081680000006
+http://wasp.cs.vu.nl/chem/id#R2008081680000015 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type 	http://wasp.cs.vu.nl/chem/id#R2008081680000006
