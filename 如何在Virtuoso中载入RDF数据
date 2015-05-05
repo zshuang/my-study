@@ -36,3 +36,22 @@ http://wasp.cs.vu.nl/chem/id#R2008081680000012 	http://www.w3.org/1999/02/22-rdf
 http://wasp.cs.vu.nl/chem/id#R2008081680000013 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type 	http://wasp.cs.vu.nl/chem/id#R2008081680000006
 http://wasp.cs.vu.nl/chem/id#R2008081680000014 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type 	http://wasp.cs.vu.nl/chem/id#R2008081680000006
 http://wasp.cs.vu.nl/chem/id#R2008081680000015 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type 	http://wasp.cs.vu.nl/chem/id#R2008081680000006
+
+
+Virtuoso 对N-triple数据格式要求比较高。
+（1） 对于UTF-8的Ntriple数据， 要使用没有BOM的UTF-8文本格式
+（2）不允许literal中包含多行文字
+
+为了查找Ntriple文件中的细小错误， 可以先把数据文件载入，
+然后用类似下列Sparql查询：
+select ?s ?o
+where {
+?s <http://wasp.cs.vu.nl/chem#hasName> ?o.
+}
+ORDER by ?s
+看看数据载入到哪个地方。 如Sparql的结果的最后一行有如下类似的结果：
+http://wasp.cs.vu.nl/chem/id#zyw20140605-1406082003_720 	"alpha-(三氯甲基)苄基醇乙酸酯"@cn
+
+则在文本编辑器查找http://wasp.cs.vu.nl/chem/id#zyw20140605-1406082003_720后面相关的语句，都能找到对应的错误。
+
+找到错误后， 修改其错误， 在virtuoso中卸除对应的graph，再载入一遍同样的rdf graph， 一直到没有错误为止。
